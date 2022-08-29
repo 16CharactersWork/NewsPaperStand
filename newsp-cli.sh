@@ -22,12 +22,13 @@ cut -d '"' -f2 |
 pup 'text{}' 
 ); do
   count=$(( count + 1 ))
-  echo "${count}) $each"
+  select (("${count}) $each"))
 done
  
 if [ "$count" -eq 0 ]; then
   echo "No disks found."
 fi
+
 
 #echo "select your choice, and select only the link above the date"
 #select choice in printf$scapemg
