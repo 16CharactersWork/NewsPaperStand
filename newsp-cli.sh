@@ -7,6 +7,6 @@ dependencies=("ls" "cat" "curl" "sed" "awk" "tr" "du" "rm" "mkdir" "git" "diff" 
 github_source="https://raw.githubusercontent.com/16CharactersWork/master/newsp-cli"
 
 #Scraping
-re
 
-curl --silent "https://mgreader.com/?cat=231&s=New+York"
+curl "https://mgreader.com/?cat=231&s=New+York+Times" | pup "header h2 a" | cut -d '"' -f2 | pup 'text{}'
+
