@@ -26,7 +26,7 @@ pup 'text{}'
 done
  
 if [ "$count" -eq 0 ]; then
-  echo "No disks found."
+  echo "No newspaper."
 fi
 
 
