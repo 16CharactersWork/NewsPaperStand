@@ -6,7 +6,7 @@ cache_dir="${HOME}/.cache/news-cli"
 dependencies=("ls" "cat" "curl" "sed" "awk" "tr" "du" "rm" "mkdir" "git" "diff" "patch" "zathura" "pup")
 github_source="https://raw.githubusercontent.com/16CharactersWork/master/newsp-cli"
 
-count =0
+declare -i count=0
 
 echo What newspaper are you looking for?
 read newspaper_input
