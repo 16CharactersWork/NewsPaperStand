@@ -1,7 +1,11 @@
 #!/bin/bash
 
 version="0.0.1"
-cache_dir="${HOME}/.cache/newsp-cli"
-github_source="https://raw.githubusercontent.com/16CharactersWork/newsp-cli/master/newsp-cli"
+old_ifs="${IFS}"
+cache_dir="${HOME}/.cache/news-cli"
+dependencies=("ls" "cat" "curl" "sed" "awk" "tr" "du" "rm" "mkdir" "git" "diff" "patch" "img2pdf" "zathura" "html2text")
+github_source="https://raw.githubusercontent.com/16CharactersWork/master/newsp-cli"
 
-#Text Colors
+#Scraping
+
+curl --silent "https://mgreader.com/?cat=231&s=New+York"
