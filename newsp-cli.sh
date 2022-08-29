@@ -8,35 +8,33 @@ github_source="https://raw.githubusercontent.com/16CharactersWork/master/newsp-c
 
 
 
+    echo What newspaper are you looking for?
+    read newspaper_input
 
-searching() {
+
 
 #Replace spaces with pluses
-search_query="$(printf "%s" "${}" | tr " " "+")"
-  
+newspaper_input="$(printf "%s" "${newspaper}" | tr " " "+")"
+
+echo "Please select a news paper"  
+
 #The one command I can get to find everything 
-scapemg=$(curl "https://mgreader.com/?cat=231&s=${search_query}" | 
+scapemg=$(curl -s "https://mgreader.com/?cat=231&s=${newspaper}" | 
 pup "header h2 a" | 
 cut -d '"' -f2 | 
 pup 'text{}'
 )
-}
 
-#Command to display download  link
-found() {
+
+
+
 found_link=$(curl -s 'https://mgreader.com/the-new-york-times-25-august-2022.html' | 
 pup 'a[target="_blank"]' | 
 cut -d '"' -f4 |
 grep 'https:*'
 )
-}
 
-#downloand newspaper to temp cache
-downloaded() {
 
-}
 
-search_newspaper() {
-    prompt "What news paper?"
-    newspaper_input="$(reply)"
-}
+
+
