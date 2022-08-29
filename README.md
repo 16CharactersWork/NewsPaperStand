@@ -3,6 +3,8 @@ Reading a newspaper made easy within the cli
 
 Website being scaped [mgreader.com](mgreader.com)
 
+I forked it, and making attempts 
+
 Please check out [manga-cli](https://github.com/7USTIN/manga-cli/blob/master/README.md) as I got the inspiration from them. 
 
 ## Todo
