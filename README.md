@@ -12,3 +12,4 @@ Please check out [manga-cli](https://github.com/7USTIN/manga-cli/blob/master/REA
 2. See if I can scape websites
 3. Try to understand this stuff
 
+Goal is to right now print out a list from search, and be able to the link and have zanthare open it from a temp cache
