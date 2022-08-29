@@ -6,6 +6,7 @@ Website being scaped [mgreader.com](mgreader.com)
 Please check out [manga-cli](https://github.com/7USTIN/manga-cli/blob/master/README.md) as I got the inspiration from them. 
 
 ## Todo
-[]Learn Bash!
-[]See if I can scape websites
+1. Learn Bash!
+2. See if I can scape websites
+3. Try to understand this stuff
 
