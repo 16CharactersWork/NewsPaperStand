@@ -1,3 +1,4 @@
+from concurrent.futures.process import _sendback_result
 from select import select
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -5,7 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.common.keys import Keys
 import re
+import pickle
+
 
 def urlify(s):
 
@@ -35,23 +39,44 @@ newspsearch = urlify("Financial Times")
 
 #Pulls website from the users input
 driver.get(url + newspsearch)
-
+pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
+cookies = pickle.load(open("cookies.pkl", "rb"))
+for cookie in cookies:
+    driver.add_cookie(cookie)
 #Waits webpage to load
 driver.implicitly_wait(2)
-
+newslink = "Financial Times USA – August 10, 2022"
 #Prints recent avalable selections
 newspsearch = urlifyundo(newspsearch)
 list_links=driver.find_elements(By.XPATH, "//a[contains(text(),'" + newspsearch + "')]")
 for i in list_links:
     print (i.get_attribute('title'))
     #Ask user for webpage
-userselection = input("What title would you like to read:")
-userselections = driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + userselection + "']")
-linkfound1 = userselections.get_attribute('href')
-driver.get(linkfound1)
-driver.implicitly_wait(2)
-linkfound2 = driver.find_element(By.CSS_SELECTOR, ".btn.btn-dark")
-linkfound2.click
+driver.find_element(By.XPATH, "//button[@aria-label='Close this dialog']").send_keys(Keys.ENTER)
+#userselection = input("What title would you like to read:")
+#driver.find_element(By.CSS_SELECTOR, "#dismiss-button").send_keys(Keys.ENTER)
+
+driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
+driver.refresh
+driver.implicitly_wait(4)
+driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
+driver.refresh
+driver.implicitly_wait(3)
+driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
+driver.implicitly_wait(30)
+driver.refresh
+driver.implicitly_wait(30)
+driver.find_element(By.CSS_SELECTOR, ".hz-icon.hz-icn-down.down-pdf").send_keys(Keys.CLICK)
+#driver.implicitly_wait(30)
+#driver.quit()
+
+#driver.find_element(By.CSS_SELECTOR, "#dismiss-button").send_keys(Keys.ENTER)
+#userselection.send_keys(Keys.ENTER)
+#linkfound1 = userselections.get_attribute('href')
+#driver.navigate.to(linkfound1)
+
+#driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
+
 #dateselected =  urlify(input("Which selection would you like to make?: "))
 # #printnewspsearch = driver.g
 #driver.quit()
