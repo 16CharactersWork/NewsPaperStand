@@ -63,10 +63,10 @@ driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newsl
 driver.refresh
 driver.implicitly_wait(3)
 driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
-driver.implicitly_wait(30)
+driver.implicitly_wait(2)
 driver.refresh
-driver.implicitly_wait(30)
-driver.find_element(By.CSS_SELECTOR, ".hz-icon.hz-icn-down.down-pdf").send_keys(Keys.CLICK)
+driver.implicitly_wait(2)
+driver.find_element(By.XPATH, '//a[contains(@href,"href")]').send_keys(Keys.ENTER)
 #driver.implicitly_wait(30)
 #driver.quit()
 

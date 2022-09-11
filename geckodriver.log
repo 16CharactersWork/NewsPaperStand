@@ -1692,3 +1692,121 @@ Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
 DevTools listening on ws://localhost:55945/devtools/browser/07819bbc-55bb-4250-b255-6f5771375fbc
 JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 6819 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 457 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662872690260	geckodriver	INFO	Listening on 127.0.0.1:54489
+1662872690782	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49891" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilepdwSIC"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662872691645	Marionette	INFO	Marionette enabled
+1662872691649	Marionette	INFO	Listening on port 43801
+WebDriver BiDi listening on ws://localhost:49891
+Read port: 43801
+1662872691771	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilepdwSIC/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:49891/devtools/browser/9a1b811e-784e-41d6-b918-862e25278c3b
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 5347 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 5392 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662872704289	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: NotAllowedError: The play method is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Marionette threw an error: TypeError: browsingContext.currentWindowGlobal is null
+getMarionetteCommandsActorProxy/get/<@chrome://remote/content/marionette/actors/MarionetteCommandsParent.jsm:337:29
+observe@resource://gre/modules/AsyncShutdown.jsm:576:16
+
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 2013\"  data: no]"
+1662872724461	Marionette	INFO	Stopped listening on port 43801
+1662872742410	geckodriver	INFO	Listening on 127.0.0.1:50953
+1662872742928	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54521" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileHEwt3k"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662872745663	Marionette	INFO	Marionette enabled
+1662872745677	Marionette	INFO	Listening on port 42711
+WebDriver BiDi listening on ws://localhost:54521
+Read port: 42711
+1662872746039	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileHEwt3k/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:54521/devtools/browser/bdfef92f-a34d-47fc-ac87-f45a5eaf31b4
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 2013\"  data: no]"
+1662872751723	Marionette	INFO	Stopped listening on port 42711
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://services-settings/RemoteSettingsWorker.jsm, line 145: Error: Shutdown, aborting read-only worker requests.
+1662872768746	geckodriver	INFO	Listening on 127.0.0.1:33525
+1662872769264	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50849" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofiled64dmR"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662872770066	Marionette	INFO	Marionette enabled
+1662872770070	Marionette	INFO	Listening on port 42857
+WebDriver BiDi listening on ws://localhost:50849
+Read port: 42857
+1662872770317	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiled64dmR/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:50849/devtools/browser/60f5526c-a2dd-4577-bf3a-3d1bcf5920c2
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 3901 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 7684 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662872796109	geckodriver	INFO	Listening on 127.0.0.1:39719
+1662872796626	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33637" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileEusthu"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662872797427	Marionette	INFO	Marionette enabled
+1662872797433	Marionette	INFO	Listening on port 35993
+WebDriver BiDi listening on ws://localhost:33637
+Read port: 35993
+1662872797677	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEusthu/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:33637/devtools/browser/64f6a4dd-d833-4ed2-9245-3383172377af
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 7488 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 1002 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: NotAllowedError: The play method is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.
+1662872990782	geckodriver	INFO	Listening on 127.0.0.1:53099
+1662872991300	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55215" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileAmstF1"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662872992098	Marionette	INFO	Marionette enabled
+1662872992103	Marionette	INFO	Listening on port 38901
+WebDriver BiDi listening on ws://localhost:55215
+Read port: 38901
+1662872992347	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileAmstF1/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:55215/devtools/browser/81ec8ba7-3007-48ff-b97c-524f7b61b79a
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 1858 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 2678 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662873029799	geckodriver	INFO	Listening on 127.0.0.1:34685
+1662873030319	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49803" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileOgvMLW"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1662873031111	Marionette	INFO	Marionette enabled
+1662873031115	Marionette	INFO	Listening on port 39099
+Read port: 39099
+WebDriver BiDi listening on ws://localhost:49803
+1662873031234	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOgvMLW/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:49803/devtools/browser/2fcead15-7590-48a5-99f0-76bd88a5aa60
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 1337 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 3423 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
