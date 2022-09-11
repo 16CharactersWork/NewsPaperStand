@@ -53,8 +53,6 @@ for i in list_links:
     print (i.get_attribute('title'))
     #Ask user for webpage
 driver.find_element(By.XPATH, "//button[@aria-label='Close this dialog']").send_keys(Keys.ENTER)
-#userselection = input("What title would you like to read:")
-#driver.find_element(By.CSS_SELECTOR, "#dismiss-button").send_keys(Keys.ENTER)
 
 driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
 driver.refresh
@@ -62,11 +60,23 @@ driver.implicitly_wait(4)
 driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
 driver.refresh
 driver.implicitly_wait(3)
-driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
+james = driver.find_element(By.XPATH, "//a[@class='btn btn-dark']")
+james2 = james.find_element(By.CSS_SELECTOR, "a")
+for e in james2:
+    print(e.text)
+#driver.switch_to.new_window('tab')
+#driver.get(john)
+
+
+
 driver.implicitly_wait(2)
-driver.refresh
-driver.implicitly_wait(2)
-driver.find_element(By.XPATH, '//a[contains(@href,"href")]').send_keys(Keys.ENTER)
+driver.implicitly_wait(10)
+
+#driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
+
+
+
+driver.find_element(By.XPATH, "//a[@class='hz-icon hz-icn-down down-pdf']").send_keys(Keys.ENTER)
 #driver.implicitly_wait(30)
 #driver.quit()
 
