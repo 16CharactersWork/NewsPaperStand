@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
 import re
@@ -38,8 +40,10 @@ driver.implicitly_wait(2)
 
 #Prints recent avalable selections
 newspsearch = urlifyundo(newspsearch)
-fillerprint = driver.find_elements(By.CSS_SELECTOR, 'h2.entry-title')
-print(fillerprint.title)
+list_links=driver.find_elements(By.XPATH, "//a[contains(text(),'" + newspsearch + "')]")
+for i in list_links:
+    print (i.get_attribute('title'))
+
 
 #Ask user for webpage
 #dateselected =  urlify(input("Which selection would you like to make?: "))
