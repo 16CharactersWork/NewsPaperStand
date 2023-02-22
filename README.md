@@ -11,18 +11,18 @@ Long: A webscraper written in python to scan links from https://freemagazines.to
 Install my-project with python
 
 ```python
-  pip install request
-  pip install Beautifulsoup
+  pip install requests Beautifulsoup
   #Then navigate to the folder where you've cloned the git repo and run it.
-  newscli.py
+  #Makesure you run the correct one for your operating system.
+  newspaperstand[linux/windows].py
 ```
     
 ### To Do
 
 - [x] Python
-- [ ] Linux
+- [x] Linux
 - [ ] CLI UX
-- [ ] Pesky Bug downloading the webpage and not just pdf
-- [ ] Download on all pages the pdf
+- [x] Pesky Bug downloading the webpage and not just pdf
+- [x] Download on all pages the pdf
 
 
