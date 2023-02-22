@@ -1,12 +1,28 @@
-# newsp-cli
-Reading a newspaper made easy within the cli
+# News Paper Stand
 
-Website being scaped [mgreader.com](mgreader.com)
+Short:
+To retreive the newspaper.
+
+Long: A webscraper written in python to scan links from https://freemagazines.top/newspapers and grab the appropriate newspapers.
 
 
-Please check out [manga-cli](https://github.com/7USTIN/manga-cli/blob/master/README.md) as I got the inspiration from them. 
+## Installation
 
-## Todo
-1. Python
+Install my-project with python
 
-Python
+```python
+  pip install request
+  pip install Beautifulsoup
+  #Then navigate to the folder where you've cloned the git repo and run it.
+  newscli.py
+```
+    
+### To Do
+
+- [x] Python
+- [ ] Linux
+- [ ] CLI UX
+- [ ] Pesky Bug downloading the webpage and not just pdf
+- [ ] Download on all pages the pdf
+
+
