@@ -1,92 +1,83 @@
-from concurrent.futures.process import _sendback_result
-from select import select
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.options import Options
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.common.keys import Keys
-import re
-import pickle
+import os
+import requests
+from bs4 import BeautifulSoup
+import time
+import webbrowser
 
+url = "https://freemagazines.top/newspapers"
 
-def urlify(s):
+session = requests.session()
+session.headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+    "Referer": url
+}
 
-    # Remove all non-word characters (everything except numbers and letters)
-    s = re.sub(r"[^\w\s]", '', s)
+response = session.get(url)
+time.sleep(5)  # Add a delay to mimic human behavior
 
-    # Replace all runs of whitespace with +
-    s = re.sub(r"\s+", '+', s)
+soup = BeautifulSoup(response.text, "html.parser")
 
-    return s
+links = []
+for link in soup.find_all("a"):
+    href = link.get("href")
+    if href.startswith("http"):
+        href = href.replace("blackhole.run", "app.blackhole.run")
+        links.append(href)
 
-def urlifyundo(p):
+print("Select a link:")
+for i, link in enumerate(links):
+    print(f"{i+1}. {link}")
 
-    #Returns spaces
-    p = re.sub(r"[+]", ' ', p)
+selected_link = None
+while selected_link is None:
+    try:
+        choice = int(input("Enter the number of the link you want to select: "))
+        if 1 <= choice <= len(links):
+            selected_link = links[choice-1]
+        else:
+            print("Invalid choice. Please enter a number between 1 and", len(links))
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+print("Selected link:", selected_link)
+
+response = session.get(selected_link)
+time.sleep(5)  # Add a delay to mimic human behavior
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+pdf_links = []
+for link in soup.find_all("a"):
+    href = link.get("href")
+    if href and href.startswith("https://app.blackhole.run"):
+        pdf_links.append(href)
+
+if not pdf_links:
+    print("No PDF links found.")
+else:
+    print("PDF links:")
+    for i, link in enumerate(pdf_links):
+        print(f"{i+1}. {link}")
     
-    return p
-
-
-options = Options()
-options.headless = False
-driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
-
-url = "https://mgreader.com/?cat=231&s="
-#newspsearch = urlify(input("What newspaper are you looking for: "))
-newspsearch = urlify("Financial Times") 
-
-#Pulls website from the users input
-driver.get(url + newspsearch)
-pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
-cookies = pickle.load(open("cookies.pkl", "rb"))
-for cookie in cookies:
-    driver.add_cookie(cookie)
-#Waits webpage to load
-driver.implicitly_wait(2)
-newslink = "Financial Times USA – August 10, 2022"
-#Prints recent avalable selections
-newspsearch = urlifyundo(newspsearch)
-list_links=driver.find_elements(By.XPATH, "//a[contains(text(),'" + newspsearch + "')]")
-for i in list_links:
-    print (i.get_attribute('title'))
-    #Ask user for webpage
-driver.find_element(By.XPATH, "//button[@aria-label='Close this dialog']").send_keys(Keys.ENTER)
-
-driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
-driver.refresh
-driver.implicitly_wait(4)
-driver.find_element(By.CSS_SELECTOR, "h2[class='entry-title'] a[title='" + newslink + "']").send_keys(Keys.ENTER)
-driver.refresh
-driver.implicitly_wait(3)
-james = driver.find_element(By.XPATH, "//a[@class='btn btn-dark']")
-james2 = james.find_element(By.CSS_SELECTOR, "a")
-for e in james2:
-    print(e.text)
-#driver.switch_to.new_window('tab')
-#driver.get(john)
-
-
-
-driver.implicitly_wait(2)
-driver.implicitly_wait(10)
-
-#driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
-
-
-
-driver.find_element(By.XPATH, "//a[@class='hz-icon hz-icn-down down-pdf']").send_keys(Keys.ENTER)
-#driver.implicitly_wait(30)
-#driver.quit()
-
-#driver.find_element(By.CSS_SELECTOR, "#dismiss-button").send_keys(Keys.ENTER)
-#userselection.send_keys(Keys.ENTER)
-#linkfound1 = userselections.get_attribute('href')
-#driver.navigate.to(linkfound1)
-
-#driver.find_element(By.XPATH, "//a[@class='btn btn-dark']").send_keys(Keys.ENTER)
-
-#dateselected =  urlify(input("Which selection would you like to make?: "))
-# #printnewspsearch = driver.g
-#driver.quit()
+    download_choice = input("Do you want to download a PDF file? (y/n) ")
+    if download_choice.lower() == "y":
+        pdf_choice = None
+        while pdf_choice is None:
+            try:
+                pdf_choice = int(input("Enter the number of the PDF you want to download: "))
+                if 1 <= pdf_choice <= len(pdf_links):
+                    pdf_url = pdf_links[pdf_choice-1]
+                    response = session.get(pdf_url)
+                    downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+                    filename = os.path.basename(pdf_url)
+                    file_path = os.path.join(downloads_folder, filename)
+                    with open(file_path, "wb") as f:
+                        f.write(response.content)
+                    print("Downloaded file:", file_path)
+                    webbrowser.open(pdf_url)
+                else:
+                    print("Invalid choice. Please enter a number between 1 and", len(pdf_links))
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+    else:
+        print("PDF download cancelled.")
