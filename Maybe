@@ -1,0 +1,84 @@
+import os
+import time
+import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver
+
+
+def scrape_pdf_links(url, session):
+    response = session.get(url)
+    time.sleep(5)
+    soup = BeautifulSoup(response.text, "html.parser")
+    pdf_links = set()
+    for link in soup.find_all("a", href=True):
+        href = link.get("href")
+        if href.startswith("https://app.blackhole.run") or link.find("button", string="Download PDF"):
+            pdf_links.add(href)
+    return pdf_links
+
+
+def main():
+    url = "https://freemagazines.top/newspapers"
+    ignore_links = set()
+    with open("ignore_links.txt", "r") as f:
+        for line in f:
+            ignore_links.add(line.strip())
+    session = requests.Session()
+    session.headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+        "Referer": url
+    }
+    response = session.get(url)
+    time.sleep(5)
+    soup = BeautifulSoup(response.text, "html.parser")
+    bookmarks = soup.find_all("a", attrs={"rel": "bookmark"})
+    for i, bookmark in enumerate(bookmarks):
+        print(f"News Paper Link {i+1}: {bookmark['href']}")
+    bookmark_choice = None
+    while bookmark_choice is None:
+        try:
+            bookmark_choice = int(input("Enter the number of the bookmark you want to follow: "))
+            if bookmark_choice < 1 or bookmark_choice > len(bookmarks):
+                raise ValueError
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and", len(bookmarks))
+            continue
+    bookmark_link = bookmarks[bookmark_choice-1]
+    pdf_links = set()
+    if bookmark_link['href'].startswith("https://freemagazines.top"):
+        pdf_links = scrape_pdf_links(bookmark_link['href'], session)
+    else:
+        pdf_links.add(bookmark_link['href'])
+    pdf_links -= ignore_links
+    if not pdf_links:
+        print("No PDF links found.")
+    else:
+        print("PDF links:")
+        for i, link in enumerate(pdf_links):
+            print(f"{i+1}. {link}")
+        link_choice = None
+        while link_choice is None:
+            try:
+                link_choice = int(input("Enter the number of the link you want to open: "))
+                if link_choice < 1 or link_choice > len(pdf_links):
+                    raise ValueError
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and", len(pdf_links))
+                continue
+        pdf_link = list(pdf_links)[link_choice-1]
+        # Open the PDF link in Zathura using Selenium
+        options = webdriver.ChromeOptions()
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--headless")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-setuid-sandbox")
+        driver = webdriver.Chrome(options=options)
+        driver.get(pdf_link)
+        time.sleep(60)  # Wait for one minute
+        driver.quit()
+
+
+if __name__ == "__main__":
+    main()
